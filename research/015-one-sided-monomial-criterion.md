@@ -39,3 +39,18 @@ v(t)=-2\int_t^\infty e^{t-u}(1-1/T(u))\,du,\qquad
 D(x)=\frac1{2x^3}\int_0^\infty B(y)e^{-y/x}\,dy
 \]
 를 만족한다. 양의 적분핵이므로 \(B\)의 상계 또는 하계 하나를 \(y^{3+a}\) 규모에서 얻어도 같은 방향이 \(D\)에 전달된다. 상수 확인: \(\int_0^\infty y^{3+a}e^{-y/x}\,dy=x^{4+a}\Gamma(4+a)\). 지수가 \(a=1/2+\varepsilon\)일 때 \(B\)의 목표는 \(7/2+\varepsilon\)이다. 유한 구간을 포함하려면 \(C\)를 키우면 된다(\(B(y)=0\) for \(y<2\)). 연속 균일 모델의 상쇄는 이 산술 조건을 입증하지 않는다. 반대로 \(\Re\rho>a\)인 영점이 있다면 \(D(x)/x^{1+a}\)는 위아래 모두 결국 유계일 수 없다.
+
+## 역방향: 삼각합 경계의 동치성
+
+\(E_\psi(t)=\psi(t)-t,\ M(Y)=\sup_{0\le t\le Y}|E_\psi(t)|\)라 두자. \(W(u,v)=4uv-u^2-v^2\) 및 \(I(\alpha,\beta)=\int_{u,v\ge0,\ u+v\le Y}W(u,v)\,d\alpha(u)\,d\beta(v)\)를 쓴다. \(\mu=d\psi,\ \lambda=dt,\ \nu=\mu-\lambda\)이면 \(B(Y)=I(\mu,\mu)\), \(I(\lambda,\lambda)=0\) (연속 단면의 상쇄), 따라서 \(B(Y)=I(\mu,\nu)+I(\nu,\lambda)\)이다.
+
+고정한 \(u\)에 대해 \(T=Y-u\)라 두면 Stieltjes 부분적분으로
+\[
+\int_{[0,T]}W(u,v)\,d\nu(v)
+ = W(u,T) E_\psi(T)-\int_0^T\partial_vW(u,v)\,E_\psi(v)\,dv.
+\]
+이 식은 \(v=T\)의 원자도 포함한다. \(W=O(Y^2)\), \(\partial_vW=O(Y)\)이므로 우변은 균일하게 \(O(Y^2 M(Y))\). 대칭성으로 \(\nu\)를 두 번째 변수에 둘 수 있고, 나머지 양의 측도 \(\mu,\lambda\)의 질량은 각각 \(O(Y)\)다. 즉
+\[
+B(Y)=O\!\left(Y^3 M(Y)\right).
+\]
+소수정리로 \(M(Y)=o(Y)\)이므로 무조건적으로 \(B(Y)=o(Y^4)\)이다. RH 아래 고전적 Chebyshev 오차 경계 \(\psi(t)-t=O(t^{1/2}\log^2 t)\)를 쓰면 \(B(Y)=O_\varepsilon(Y^{7/2+\varepsilon})\). 따라서 모든 충분히 작은 \(\varepsilon>0\)에 대한 한쪽 삼각합 경계는 RH의 충분조건인 동시에 필요조건이다. 필요한 \(7/2+\varepsilon\) 경계 자체를 무조건적으로 얻은 것은 아니다.
