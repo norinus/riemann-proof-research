@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "scope": "Research 017 seed only; human-reviewed derivations, not Lean certificates",
+  "nodes": [
+    {
+      "id": "chebyshev",
+      "claim": "theta(Y)=O(Y)",
+      "status": "classical",
+      "source": "https://dlmf.nist.gov/25.16",
+      "deps": []
+    },
+    {
+      "id": "pnt",
+      "claim": "theta(Y)~Y",
+      "status": "classical",
+      "source": "https://dlmf.nist.gov/25.16",
+      "deps": []
+    },
+    {
+      "id": "euler",
+      "claim": "Euler product and zeta logarithmic derivative",
+      "status": "classical",
+      "source": "https://dlmf.nist.gov/25.2",
+      "deps": []
+    },
+    {
+      "id": "zeta-real",
+      "claim": "zeta meromorphic continuation and nonvanishing on positive real axis except pole at 1",
+      "status": "classical",
+      "source": "https://dlmf.nist.gov/25.2",
+      "deps": []
+    },
+    {
+      "id": "gamma",
+      "claim": "Gamma integral and nonvanishing",
+      "status": "classical",
+      "source": "https://dlmf.nist.gov/5.2",
+      "deps": []
+    },
+    {
+      "id": "landau",
+      "claim": "Nonnegative Laplace transform has real singularity at finite convergence abscissa",
+      "status": "classical",
+      "source": "research/015-one-sided-monomial-criterion.md",
+      "deps": []
+    },
+    {
+      "id": "stieltjes",
+      "claim": "Stieltjes integration by parts",
+      "status": "classical",
+      "deps": []
+    },
+    {
+      "id": "compactness",
+      "claim": "Compactness, identity theorem, isolated zeros of nonzero polynomials",
+      "status": "classical",
+      "deps": []
+    },
+    {
+      "id": "prime-power",
+      "claim": "psi(Y)-theta(Y)=O(sqrt(Y))",
+      "status": "derived_unformalized",
+      "source": "research/017-prime-support-barrier.md#A",
+      "deps": [
+        "chebyshev"
+      ]
+    },
+    {
+      "id": "prime-only",
+      "claim": "Higher prime powers contribute O(x^(3/2)) to D and O(Y^(7/2)) to B",
+      "status": "derived_unformalized",
+      "source": "research/017-prime-support-barrier.md#A",
+      "deps": [
+        "prime-power",
+        "stieltjes",
+        "chebyshev"
+      ]
+    },
+    {
+      "id": "shifted-pole",
+      "claim": "A perturbation supported on actual primes creates a nonreal pole at beta+i gamma",
+      "status": "derived_unformalized",
+      "source": "research/017-prime-support-barrier.md#B",
+      "deps": [
+        "euler",
+        "zeta-real",
+        "compactness",
+        "chebyshev"
+      ]
+    },
+    {
+      "id": "negative-control",
+      "claim": "Both one-sided bounds for L_w fail at exponent a",
+      "status": "derived_unformalized",
+      "source": "research/017-prime-support-barrier.md#B",
+      "deps": [
+        "shifted-pole",
+        "gamma",
+        "landau",
+        "pnt"
+      ]
+    },
+    {
+      "id": "exact-weight-bound",
+      "claim": "One-sided square-root bound for L with exact log p weights",
+      "status": "open",
+      "deps": []
+    },
+    {
+      "id": "rh",
+      "claim": "Riemann hypothesis",
+      "status": "open",
+      "deps": [
+        "exact-weight-bound",
+        "gamma",
+        "euler",
+        "landau",
+        "prime-only"
+      ]
+    }
+  ],
+  "ranking_examples": [
+    {
+      "goal": "prime-only",
+      "positive": [
+        "prime-power",
+        "chebyshev",
+        "stieltjes"
+      ],
+      "negative": [
+        "rh"
+      ],
+      "negative_reason": "circular assumption"
+    },
+    {
+      "goal": "exact-weight-bound",
+      "positive": [
+        "euler"
+      ],
+      "negative": [
+        "pnt",
+        "chebyshev"
+      ],
+      "negative_reason": "insufficient as standalone premises even with actual prime support; see negative-control",
+      "label_semantics": "positive means relevant, not sufficient; negative means insufficient alone, not irrelevant"
+    }
+  ]
+}
