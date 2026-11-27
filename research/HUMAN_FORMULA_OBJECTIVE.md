@@ -1,0 +1,5 @@
+# Human-centered formula discovery
+User direction 2026-11-27: seek concise fundamental relations analogous in expressive economy to F=ma and E=mc^2, using established human mathematical proof methods.
+Distinguish empirical physical laws from deductive mathematics. Prefer low-degree monomials, polynomial identities, inequalities and invariants with explicitly defined variables. Allow analytic operators where necessary; do not assert all proofs admit polynomial representations.
+Use verified historical theorem corpora, provenance, typed assumptions, symbolic algebra, induction, contradiction, direct proof, and established analysis. Search for minimal relations, then prove each from accepted premises. Penalize hidden complexity in definitions, equivalent reformulations, unproved assumptions and circular dependencies. Neural ranking is heuristic only.
+For RH, prioritize a genuinely unconditional arithmetic identity or inequality that controls the existing moment error. A compact RH-equivalent statement alone is not progress toward proving it. Require independent reproducible verification before claiming completion.
