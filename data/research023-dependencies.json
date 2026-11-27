@@ -1,0 +1,19 @@
+{
+  "scope": "Curated research 023 DAG; unformalized derivations, not proof certificates. Direct dependency labels are not sufficiency or irrelevance labels.",
+  "nodes": [
+    {"id":"chebyshev","claim":"Chebyshev bound psi(x)=O(x)","status":"classical","deps":[],"source":"https://dlmf.nist.gov/25.16"},
+    {"id":"calculus","claim":"Termwise differentiation chain rule and Stieltjes partial summation","status":"classical","deps":[],"source":"research/023-polynomial-sampling.md#1"},
+    {"id":"em","claim":"Euler Maclaurin bounded periodic Bernoulli remainder","status":"classical","deps":[],"source":"https://dlmf.nist.gov/2.10.E1"},
+    {"id":"landau","claim":"Positive Laplace transform real singularity at convergence abscissa","status":"classical","deps":[],"source":"research/015-one-sided-monomial-criterion.md"},
+    {"id":"mellin","claim":"Gamma zeta logarithmic derivative Mellin transform and real nonvanishing","status":"classical","deps":[],"source":"research/022-single-crossing-scale-difference.md"},
+    {"id":"endpoint","claim":"Zero-free half plane implies square root endpoint exponential bound","status":"derived_unformalized","deps":["mellin"],"source":"research/021-triangular-zero-formula-and-endpoint.md"},
+    {"id":"derivative","claim":"Exponential prime kernel derivative polynomial bound","status":"derived_unformalized","deps":["chebyshev","calculus"],"source":"research/023-polynomial-sampling.md#1"},
+    {"id":"discrete","claim":"Polynomial sampling Mellin sum integral difference entire","status":"derived_unformalized","deps":["derivative","em"],"source":"research/023-polynomial-sampling.md#2"},
+    {"id":"grid-criterion","claim":"One-sided polynomial grid bound equivalent to zero-free half plane","status":"derived_unformalized","deps":["discrete","landau","mellin","endpoint"],"source":"research/023-polynomial-sampling.md#3"},
+    {"id":"alias","claim":"Positive density geometric grid alias counterexample","status":"derived_unformalized","deps":["calculus","mellin"],"source":"research/023-polynomial-sampling.md#4"},
+    {"id":"grid-bound","claim":"Unconditional one-sided square root bound on polynomial grid for exact prime weights","status":"open","deps":[],"source":"research/023-polynomial-sampling.md#5"},
+    {"id":"rh","claim":"Riemann hypothesis","status":"open","deps":["grid-criterion","grid-bound"],"source":"research/023-polynomial-sampling.md#5"}
+  ],
+  "train_goals":["derivative","discrete","alias"],
+  "holdout_goal":"grid-criterion"
+}
