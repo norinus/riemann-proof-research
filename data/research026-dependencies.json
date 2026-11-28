@@ -1,0 +1,124 @@
+{
+  "scope": "Curated direct dependencies; derived_unformalized is not a formal proof certificate; nonedges are not proof irrelevance labels.",
+  "nodes": [
+    {
+      "id": "bd",
+      "claim": "Báez Duarte natural integer dilation L2 approximation criterion",
+      "status": "classical",
+      "deps": [],
+      "source": "https://arxiv.org/abs/math/0202141"
+    },
+    {
+      "id": "mobius",
+      "claim": "Mobius divisor inversion and convolution with constant one",
+      "status": "classical",
+      "deps": [],
+      "source": "https://dlmf.nist.gov/27.5.E3"
+    },
+    {
+      "id": "floor",
+      "claim": "Integer floor quotient and remainder identity",
+      "status": "classical",
+      "deps": [],
+      "source": "research/026-residue-quadratic-certificates.md#1"
+    },
+    {
+      "id": "cs",
+      "claim": "Cauchy Schwarz inequality and finite Gram matrix positivity",
+      "status": "classical",
+      "deps": [],
+      "source": "research/026-residue-quadratic-certificates.md#3"
+    },
+    {
+      "id": "telescoping",
+      "claim": "Telescoping sum of reciprocal consecutive integer products",
+      "status": "classical",
+      "deps": [],
+      "source": "research/026-residue-quadratic-certificates.md#3"
+    },
+    {
+      "id": "residue-criterion",
+      "claim": "Discrete remainder sequence squared weighted norm density criterion",
+      "status": "derived_unformalized",
+      "deps": [
+        "bd",
+        "floor"
+      ],
+      "source": "research/026-residue-quadratic-certificates.md#1"
+    },
+    {
+      "id": "prefix-fit",
+      "claim": "Unique exact finite prefix fit from Mobius inversion",
+      "status": "derived_unformalized",
+      "deps": [
+        "floor",
+        "mobius"
+      ],
+      "source": "research/026-residue-quadratic-certificates.md#2"
+    },
+    {
+      "id": "period-obstruction",
+      "claim": "Finite prefix fit has nonzero full error at common multiple",
+      "status": "derived_unformalized",
+      "deps": [
+        "prefix-fit",
+        "floor"
+      ],
+      "source": "research/026-residue-quadratic-certificates.md#2"
+    },
+    {
+      "id": "gram-positive",
+      "claim": "Finite residue feature Gram matrix positive definite for M at least N",
+      "status": "derived_unformalized",
+      "deps": [
+        "floor",
+        "cs"
+      ],
+      "source": "research/026-residue-quadratic-certificates.md#3"
+    },
+    {
+      "id": "tail",
+      "claim": "Exact rational norm upper bound using uniform residual and telescoping tail",
+      "status": "derived_unformalized",
+      "deps": [
+        "floor",
+        "telescoping",
+        "cs"
+      ],
+      "source": "research/026-residue-quadratic-certificates.md#3"
+    },
+    {
+      "id": "quadratic-certificate",
+      "claim": "Two sided enclosure of optimal distance using exact linear solves",
+      "status": "derived_unformalized",
+      "deps": [
+        "gram-positive",
+        "tail"
+      ],
+      "source": "research/026-residue-quadratic-certificates.md#3"
+    },
+    {
+      "id": "uniform-decay",
+      "claim": "Unconditional construction of coefficients with full squared norm tending to zero",
+      "status": "open",
+      "deps": [],
+      "source": "research/026-residue-quadratic-certificates.md#4"
+    },
+    {
+      "id": "rh",
+      "claim": "Riemann hypothesis independent proof",
+      "status": "open",
+      "deps": [
+        "residue-criterion",
+        "uniform-decay"
+      ],
+      "source": "research/026-residue-quadratic-certificates.md#4"
+    }
+  ],
+  "train_goals": [
+    "prefix-fit",
+    "gram-positive",
+    "tail"
+  ],
+  "holdout_goal": "quadratic-certificate"
+}
